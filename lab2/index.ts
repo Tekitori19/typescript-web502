@@ -2,15 +2,30 @@
 //Bài 1
 type ValidInput = String | Number | boolean | null | undefined
 
-function describeValue(input: ValidInput) {
-    console.log("Input:", input, "Kiểu dữ liệu:", typeof input)
+function describeValue(input: ValidInput): string {
+    if (input === null) {
+        return "Giá trị null"
+    }
+    if (typeof input === "string") {
+        return "Giá trị string"
+    }
+    if (typeof input === "number") {
+        return "Giá trị number"
+    }
+    if (typeof input === "boolean") {
+        return "Giá trị Boolean"
+    }
+    if (typeof input === "undefined") {
+        return "Giá trị undefined"
+    }
+    throw new Error("Dữ liệu không hợp lệ")
 }
 
-// describeValue("Hello")
-// describeValue(123)
-// describeValue(true)
-// describeValue(null)
-// describeValue(undefined)
+console.log(describeValue("Hello"))
+console.log(describeValue(123))
+console.log(describeValue(true))
+console.log(describeValue(null))
+console.log(describeValue(undefined))
 
 
 //Bài 2
